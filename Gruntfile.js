@@ -95,7 +95,28 @@ module.exports = function(grunt) {
 				'plugin/**'
 			]
 		},
-
+        copy : {
+            main : {
+                files : [
+                    {
+                        expand: true,
+                        src: [
+							'css/**',
+							'js/**',
+							'lib/**',
+							'images/**',
+							'plugin/**'
+                        ],
+                        dest: "dist/"
+                    },
+                    {
+                        expand: true,
+                        src: ["*.html"],
+                        dest: "dist/"
+                    }
+                ]
+            }
+        },
 		watch: {
 			main: {
 				files: [ 'Gruntfile.js', 'js/reveal.js', 'css/reveal.css' ],
@@ -118,6 +139,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-zip' );
+    grunt.loadNpmTasks("grunt-contrib-copy");
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
