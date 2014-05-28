@@ -110,8 +110,11 @@ module.exports = function(grunt) {
                         dest: "dist/"
                     },
                     {
-                        expand: true,
-                        src: ["*.html"],
+                        expand: false,
+                        src: [
+                        	"enterprise-accessibility.html",
+                        	"ux-ui-front-line-of-accessibility.html"
+                        	],
                         dest: "dist/"
                     }
                 ]
